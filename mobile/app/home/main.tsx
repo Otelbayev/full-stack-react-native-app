@@ -42,9 +42,7 @@ export default function MainPage() {
           <Text className="text-xl font-bold mt-3 text-gray-800">
             Raxmonov Laziz
           </Text>
-          <Text className="text-lg text-gray-800 font-bold">
-            Dadasini o'g'li
-          </Text>
+          <Text className="text-lg text-gray-800 font-bold">Azamat o'g'li</Text>
         </View>
 
         <View className="mb-3 flex-row  items-center">

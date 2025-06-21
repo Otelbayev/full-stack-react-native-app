@@ -36,6 +36,7 @@
     "react-dom": "19.0.0",
     "react-native": "0.79.2",
     "react-native-gesture-handler": "~2.24.0",
+    "react-native-maps": "^1.23.8",
     "react-native-modal": "^14.0.0-rc.1",
     "react-native-multiple-select": "^0.5.12",
     "react-native-reanimated": "3.16.2",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@react-native-community/cli": "^18.0.0",
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
