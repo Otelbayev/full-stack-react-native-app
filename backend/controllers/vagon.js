@@ -1,9 +1,44 @@
+import Train from "../models/train.js";
 import Vagon from "../models/vagon.js";
 
 class VagonController {
   async getAllVagons(req, res) {
     const vagons = await Vagon.find();
     res.json(vagons);
+  }
+
+  async getDataByCode(req, res) {
+    try {
+      const { code } = req.params;
+
+      if (!code) {
+        return res.status(400).json({ error: "Vagon code is required" });
+      }
+
+      const vagon = await Vagon.findOne({ number: Number(code) });
+      if (!vagon) {
+        return res.status(404).json({ error: "Vagon not found" });
+      }
+
+      const train = await Train.findOne({ wagons: vagon._id })
+        .populate({
+          path: "route",
+          populate: {
+            path: "stations.stationId",
+            model: "Station",
+          },
+        })
+        .populate("currentStation")
+        .populate("wagons");
+
+      res.json({
+        vagon,
+        train,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Server error" });
+    }
   }
 
   async getVagonById(req, res) {

@@ -1,13 +1,13 @@
 import { Router } from "express";
 import VagonController from "../controllers/vagon.js";
-import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
-router.get("/", authMiddleware, VagonController.getAllVagons);
-router.get("/:id", authMiddleware, VagonController.getVagonById);
-router.post("/", authMiddleware, VagonController.createVagon);
-router.put("/:id", authMiddleware, VagonController.updateVagon);
-router.delete("/:id", authMiddleware, VagonController.deleteVagon);
+router.get("/search/:code", VagonController.getDataByCode);
+router.get("/", VagonController.getAllVagons);
+router.get("/:id", VagonController.getVagonById);
+router.post("/", VagonController.createVagon);
+router.put("/:id", VagonController.updateVagon);
+router.delete("/:id", VagonController.deleteVagon);
 
 export default router;

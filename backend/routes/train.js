@@ -1,13 +1,12 @@
 import { Router } from "express";
 import TrainController from "../controllers/train.js";
-import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
-router.get("/", authMiddleware, TrainController.getAllTrains);
-router.post("/", authMiddleware, TrainController.createTrain);
-router.get("/:id", authMiddleware, TrainController.getTrainById);
-router.put("/:id", authMiddleware, TrainController.updateTrain);
-router.delete("/:id", authMiddleware, TrainController.deleteTrain);
+router.get("/", TrainController.getAllTrains);
+router.post("/", TrainController.createTrain);
+router.get("/:id", TrainController.getTrainById);
+router.put("/:id", TrainController.updateTrain);
+router.delete("/:id", TrainController.deleteTrain);
 
 export default router;
